@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>কাক্কেশ্বর</title>
+
+<!-- bs4 css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<!-- TensorFlow.js script -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.5.0/fabric.min.js"></script>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script src = "quickdraw-main.js" > </script>
+<link rel = "stylesheet" href="quickdraw-main.css" >
+
+</head>
+<body>
+    <div style="width: 100%; height: 80px; background: #f8f8f8;">
+        <img src='bck.png'>
+    </div>
+
+
+<div style="width: 100%; height: 75px; background: #f8f8f8;">
+    <div style="width: 40%; float: left;">
+        <div style="font-size: 200%; font-family: KozGoPro-Light; display: block; padding: 2% 4%;">
+            <h1>কাক্বেশ্বর</h1>
+            <!-- <img src='bck.png'> -->
+        </div>
+    </div>
+    <div style="width: 60%; float: right; padding: 15px;">
+        <div style="font-family: KozGoPro-ExtraLight; display: inline-block; float:right; font-size: 130%;">
+            <span>একটি ভূষন্ডি কাগ উদ্যোগ</span>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%; padding: 1% 2.5%;">
+
+    <div style="width: 100%; height: 500px; margin-top: 20px;">
+        <div style ='width: 35%; float: left;'>
+            <div style="padding-left: 10%; margin-bottom: 40px; font-size: 140%; font-family: KozGoPro-Light;">
+                <p>এখানে আঁকো</p>
+            </div>
+            <div style ='width: 100%; padding-left: 20%;'>
+                <h4 id ='status' >নেটওয়ার্ক প্রস্তুত হচ্ছে </h4>
+                <canvas id="canvas" width="300" height="300" class="canvas" style="border:1px solid #b9bfc9;margin-top:25px;"></canvas>
+                <div class="btn-group" style = 'margin-top:40px; '>
+                    <input type="range" min="5" max="20" value="10" class="slider" id="myRange" style ='margin-top:20px;'>
+                    <button type="button" class="btn btn-outline-primary" onclick ='erase()' style ='margin-left:10px; border-radius: 5px;' disabled>বোর্ড পরিষ্কার করো</button>
+                </div>
+            </div>
+        </div>
+        <div style="width: 55%; float: right;">
+            <div style="margin-bottom: 0px; margin-left: 10%; font-size: 140%; font-family: KozGoPro-Light;">
+                সম্ভাব্য শ্রেণী
+            </div>
+            <div style="width: 100%; padding-right: 5%;">
+                <div id="pie_chart"></div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%; padding: 10px 20px; margin-top: 50px; font-family: KozGoPro-Light;">
+        এই কনভোলুশনাল নিউরাল নেটওয়ার্ক <a href="https://quickdraw.withgoogle.com/data"> গুগল কুইকড্র তথ্যসারণী </a> দ্বারা শিক্ষিত এবং নিম্নোক্ত ১০০ টি শ্রেণী চিহ্নিতকরণে সক্ষম:
+        <ul id="class_list" style="margin-top: 10px; padding: 0">
+            <li>ট্র্যাফিক লাইট</li>
+            <li>সাপ</li>
+            <li>মেঘ</li>
+            <li>পাওয়ার আউটলেট</li>
+            <li>তাঁবু</li>
+            <li>চশমা</li>
+            <li>সিলিং ফ্যান</li>
+            <li>পেপার ক্লিপ</li>
+            <li>দাড়ি</li>
+            <li>চামচ</li>
+            <li>আইসক্রীম</li>
+            <li>স্মাইলি</li>
+            <li>পেনসিল</li>
+            <li>ফুল</li>
+            <li>অ্যালার্ম ঘড়ি</li>
+            <li>সেতু</li>
+            <li>বেতার</li>
+            <li>সিরিঞ্জ</li>
+            <li>রাইফেল</li>
+            <li>ছুরি</li>
+            <li>টি-শার্ট</li>
+            <li>মুখ</li>
+            <li>মোমবাতি</li>
+            <li>দাঁত</li>
+            <li>বেঞ্চ</li>
+            <li>পাখি</li>
+            <li>মই</li>
+            <li>হট-ডগ</li>
+            <li>তরোয়াল</li>
+            <li>সূর্য</li>
+            <li>শিরস্ত্রাণ</li>
+            <li>বাস্কেটবল</li>
+            <li>বালুসাই</li>
+            <li>হাতুড়ি</li>
+            <li>হেডফোন</li>
+            <li>ঝাঁটা</li>
+            <li>ললিপপ</li>
+            <li>বেসবল</li>
+            <li>ড্রামস</li>
+            <li>চাকা</li>
+            <li>বিড়াল</li>
+            <li>মাকড়সা</li>
+            <li>ঘড়ি</li>
+            <li>আঙুর</li>
+            <li>চেয়ার</li>
+            <li>দরজা</li>
+            <li>গোঁফ</li>
+            <li>চোখ</li>
+            <li>দ্বিচক্রযান</li>
+            <li>কফি-কাপ</li>
+            <li>ছাতা</li>
+            <li>নেহাই</li>
+            <li>কাঁচি</li>
+            <li>ত্রিভুজ</li>
+            <li>খাট</li>
+            <li>বাল্ব</li>
+            <li>ল্যাপটপ</li>
+            <li>খাম</li>
+            <li>বৃত্ত</li>
+            <li>স্যুটকেস</li>
+            <li>ক্যামেরা</li>
+            <li>বালিশ</li>
+            <li>ডাইভিং-বোর্ড</li>
+            <li>রামধনু</li>
+            <li>প্যান্ট</li>
+            <li>পাউরুটি</li>
+            <li>করাত</li>
+            <li>রেখা</li>
+            <li>মাইক্রোফোন</li>
+            <li>স্ক্রু-ড্রাইভার</li>
+            <li>চাবি</li>
+            <li>ফ্রাইং-প্যান</li>
+            <li>চতুর্ভূজ</li>
+            <li>যতি-চিহ্ন</li>
+            <li>বাজ</li>
+            <li>পিৎজা</li>
+            <li>কাপ</li>
+            <li>কুকি</li>
+            <li>আপেল</li>
+            <li>মোজা</li>
+            <li>ফ্যান</li>
+            <li>শর্টস</li>
+            <li>কুঠার</li>
+            <li>বিমান</li>
+            <li>প্রজাপতি</li>
+            <li>র্যাকেট</li>
+            <li>গাছ</li>
+            <li>টুপি</li>
+            <li>বই</li>
+            <li>বেলচা</li>
+            <li>মাশরুম</li>
+            <li>ডাম্বেল</li>
+            <li>ফোন</li>
+            <li>হাতঘড়ি</li>
+            <li>বেসবল-ব্যাট</li>
+            <li>গাড়ি</li>
+            <li>পাহাড়</li>
+            <li>চাঁদ</li>
+            <li>টেবিল</li>
+            <li>তারা</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+<script>
+	start();
+</script>
+</html>
